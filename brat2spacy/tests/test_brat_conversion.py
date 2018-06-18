@@ -44,7 +44,7 @@ R13	IP Arg1:T5 Arg2:T14"""
 
 def test_spacy2brat():
     import spacy
-    nlp = spacy.load('web_core_sm')
+    nlp = spacy.load('en_core_web_sm')
     text = "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that " \
            "designs, develops, and sells consumer electronics, computer software, and online services. The " \
            "company's hardware products include the iPhone smartphone, the iPad tablet computer, the Mac personal " \
@@ -55,4 +55,6 @@ def test_spacy2brat():
            "iTunes Store, the iOS App Store and Mac App Store, Apple Music, and iCloud."
     doc = nlp(text)
     tokens, relations, entities = spacy2brat(doc)
-    return tokens, relations, entities
+    assert tokens[0] == 'T0\tPROPN 0 5\tApple'
+    assert relations[0] == 'R0\tcompound  Arg1:T1 Arg2:T0'
+    assert entities[0] == 'T0\tORG 0 10\tApple Inc.'
