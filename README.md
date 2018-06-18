@@ -3,5 +3,5 @@ Tool for converting brat *.ann files to spaCy GoldParse objects and spaCy Doc ob
 
 ## Installation
 ```
-pip install git+https://github.com/aatimofeev/brat2spacy.git@0.1.0
+pip install git+https://github.com/aatimofeev/brat2spacy.git
 ```
